@@ -18,6 +18,7 @@ class ActivityForm extends Model
     public $id_author;
     public $body;
     public $email;
+    public $is_blocked;
 
     public function rules() //служебная ф-ция, содержит правила валидации атрибутов модели
     {
@@ -27,7 +28,8 @@ class ActivityForm extends Model
             ['date_end','date'],
             ['date_start','date'],
             ['body','string','max'=>200],
-            ['email','email']
+            ['email','email'],
+            ['is_blocked','string','max'=>1],
         ];
     }
 
@@ -39,7 +41,8 @@ class ActivityForm extends Model
             'date_end'=>'Дата окончания',
             'id_author'=>'ID автора',
             'body'=>'Описание события',
-            'email'=>'Email'
+            'email'=>'Email',
+            'body'=>'Событие заблокировано'
         ];
     }
 }

@@ -8,19 +8,30 @@
 
 namespace app\controllers;
 
+use app\controllers\actions\CreateAction;
+use app\controllers\actions\DeleteAction;
 use yii\web\Controller;
-use app\models\ActivityForm;
+
 
 
 class ActivityController extends Controller
 {
-    public function actionCreate(){
+    /**
+     * @return array
+     */
+    public function actions(){
 
-        $model = new ActivityForm(); //создаем модель с описанными в ActivityForm.php атрибутами
+        return [
+            'create'=>[
+                'class'=>CreateAction::class
+            ],
+            'new_action'=>[                           //можно использовать один и тот же переход для разных
+                'class'=>CreateAction::class          //actions, вводимых в адресной строке
+            ],
 
-        $model -> load(\Yii::$app->request->post()); //заполнение модели данными массива post
-        return $this->render('create',['model' => $model]);
-
-
+            'delete'=>[
+                'class'=>DeleteAction::class
+            ],
+        ];
     }
 }

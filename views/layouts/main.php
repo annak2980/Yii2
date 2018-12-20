@@ -41,8 +41,17 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'New Year', 'url' => ['/events/newyear']],
-            ['label' => 'Create New Event', 'url' => ['/activity/create']],
+
+            ['label' => 'Lesson 2 GeekBrains',
+                'items' =>[
+                        ['label'=> 'New Year', 'url' => ['/events/newyear']],
+                    '<li class="divider"></li>',
+                    ['label' => 'Create New Event', 'url' => ['/activity/create']],
+                    '<li class="divider"></li>',
+                    ['label' => 'Delete Event', 'url' => ['/activity/delete']]
+                ]
+            ],
+
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (

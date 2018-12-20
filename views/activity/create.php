@@ -26,6 +26,7 @@ $this->title = "Новое событие:";
         <?=$form->field($model,'date_end')->textInput(['class'=>'form-control date_input']);?>
         <?=$form->field($model,'email')->input('email');?>
         <?=$form->field($model,'body');?>
+        <?=$form->field($model,'body');?>
 
         <button class="btn btn-info" type="submit">Send</button>
         <?php ActiveForm::end();?>
