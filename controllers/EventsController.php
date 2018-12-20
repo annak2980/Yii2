@@ -9,11 +9,21 @@
 namespace app\controllers;
 
 use yii\web\Controller;
+use app\controllers\events\NewyearEvent;
+use app\controllers\events\CristmassEvent;
 
 
 class EventsController extends Controller
 {
-    public function actionNewyear(){
-        return $this->render('year');
+    public function actions(){
+
+        return [
+            'newyear'=>[
+                'class'=>NewyearEvent::class
+            ],
+            'cristmass'=>[
+                'class'=>CristmassEvent::class
+            ]
+        ];
     }
 }

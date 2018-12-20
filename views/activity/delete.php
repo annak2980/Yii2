@@ -34,15 +34,8 @@ $this->title = "Удалить событие:";
 
         <?php if(\Yii::$app->request->post()) { ?>
 
-            <h1><?=$model->result; ?></h1>
-            <h1>Название события: <?=$model->title; ?></h1>
-
-            <h3><?php if($model->date_start == $model->date_end): ?>
-                   <p>Событие проходит <?=$model->date_start?></p>
-            <?php else: ?>
-                   <p>Событие проходит c <?=$model->date_start?>
-                       по <?=$model->date_end?></p>
-            <?php endif; ?> </h3>
+            <h1><?=$model['result']; ?></h1>
+            <h1>Название события: <?=$model->attributes['title']; ?></h1>
 
         <?php } ?>
     </div>

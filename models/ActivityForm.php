@@ -25,9 +25,9 @@ class ActivityForm extends Model
         return [
             [['title',"email"],'required'],
             ['title','string','min'=>5],
-            ['date_end','date'],
-            ['date_start','date'],
-            ['body','string','max'=>200],
+            ['body','string','max'=>50],
+            ['date_start','string'],
+            ['date_end','string'],
             ['email','email'],
             ['is_blocked','string','max'=>1],
         ];
@@ -42,7 +42,7 @@ class ActivityForm extends Model
             'id_author'=>'ID автора',
             'body'=>'Описание события',
             'email'=>'Email',
-            'body'=>'Событие заблокировано'
+            'is_blocked'=>'Событие заблокировано'
         ];
     }
 }

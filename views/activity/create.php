@@ -19,14 +19,12 @@ $this->title = "Новое событие:";
             ]);
             ?>
 
-        <h3><?= 'User ID'.(Yii::$app->user->id ? Yii::$app->user->id : ' не определен'); ?></h3><br>
-
         <?=$form->field($model,'title');?>
         <?=$form->field($model,'date_start')->textInput(['class'=>'form-control date_input']);?>
         <?=$form->field($model,'date_end')->textInput(['class'=>'form-control date_input']);?>
         <?=$form->field($model,'email')->input('email');?>
         <?=$form->field($model,'body');?>
-        <?=$form->field($model,'body');?>
+        <?=$form->field($model,'is_blocked')->textInput(['class'=>'handler_input']);?>
 
         <button class="btn btn-info" type="submit">Send</button>
         <?php ActiveForm::end();?>
@@ -37,20 +35,13 @@ $this->title = "Новое событие:";
 
         <?php if(\Yii::$app->request->post()) { ?>
 
-            <h1>Название события: <?=$model->title; ?></h1>
-
-            <h3><?php if($model->date_start == $model->date_end): ?>
-                   <p>Событие проходит <?=$model->date_start?></p>
-            <?php else: ?>
-                   <p>Событие проходит c <?=$model->date_start?>
-                       по <?=$model->date_end?></p>
-            <?php endif; ?> </h3>
+            <h1>Название мероприятия: <?=$model->attributes['title']; ?></h1>
 
             <h3><?=$model->getAttributeLabel('email') ?>
-            <div><?=$model->email ?></div></h3>
+            <div><?=$model['email'] ?></div></h3>
 
             <h3><?=$model->getAttributeLabel('body') ?>
-            <div><?=$model->body ?></div></h3>
+            <div><?=$model['body'] ?></div></h3>
 
         <?php } ?>
     </div>
