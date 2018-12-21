@@ -28,6 +28,6 @@ class DeleteAction extends Action
 
         }
 
-        return $this->controller->render('delete',['model' => $model]); //возвращает экземпляр контр-ра, который
+        return $this->controller->render('delete',['model' => $model, 'label_home' => 'Домашняя страница']); //возвращает экземпляр контр-ра, который
     }                                                                        //обрабатывает render модели
 }

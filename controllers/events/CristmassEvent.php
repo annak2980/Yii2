@@ -23,7 +23,7 @@ class CristmassEvent extends Action
 
         $model->validate();                  //проверка значений модели по описанным правилам rules()
 
-        return $this->controller->render('event',['model' => $model]); //возвращает экземпляр контр-ра, который
+        return $this->controller->render('event',['model' => $model, 'label_home' => 'Домашняя страница']); //возвращает экземпляр контр-ра, который
     }                                                                        //обрабатывает render модели
 }
 
