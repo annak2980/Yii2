@@ -7,7 +7,7 @@
  */
 namespace app\models;
 
-use app\models\validators\FormValidator;
+
 use yii\base\Model;
 
 class ActivityForm extends Model
@@ -35,7 +35,6 @@ class ActivityForm extends Model
         return [
 
             ['title','required'],
-            ['title',FormValidator::class],
 
             [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
             ['body','string','max'=>50],
