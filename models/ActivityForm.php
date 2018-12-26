@@ -35,14 +35,14 @@ class ActivityForm extends Model
         return [
 
             ['title','required'],
-
+            ['title','string','length'=>[5,10]],
             [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
             ['body','string','max'=>50],
             [['date_start','date_end'],'date','format'=>'php:Y-m-d H:i:s'],
 
             ['email','email'],
-            ['email','required','when'=>function($model,$attribute){
-                return empty($model->login)?false:true;}],
+           ['email','required','when'=>function($model,$attribute){
+               return empty($model->login)?false:true;}],
             ['email','required','when'=>function($model,$attribute){
                 return empty($model->body)?false:true;}],
 
@@ -53,8 +53,8 @@ class ActivityForm extends Model
             [['login','password'],'required'],
             ['user_name','string','min'=>5,'max'=>50],
             ['login','string','length'=>[5,10]],
-            ['password','match','pattern'=> '/^[A-z]{5,19}/','message'=>'Пароль на латинице не менее 5 символов'],
-            ['password_repeat','compare','compareAttribute' => 'password'],
+            ['password','match','pattern'=> '/^[a-z]{5,19}/','message'=>'Пароль на латинице не менее 5 символов'],
+            //['password_repeat','compare','compareAttribute' => 'password'],
             ['accept_process_data','boolean'],
 
         ];

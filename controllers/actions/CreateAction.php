@@ -24,8 +24,7 @@ class CreateAction extends Action
 
         if(\Yii::$app->request->isAjax) {
             $model = \Yii::$app->activity->getModel(\Yii::$app->request->post());
-            \Yii::$app->response->format=Response::FORMAT_JSON;
-            return \Yii::$app->activity->processingActivity($model);
+            return   \Yii::$app->activity->validateAjax($model);
         }
 
         if(\Yii::$app->request->isPost) {
