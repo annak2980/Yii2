@@ -7,8 +7,8 @@
  */
 namespace app\models;
 
-
 use yii\base\Model;
+
 
 class ActivityForm extends Model
 {
@@ -38,11 +38,10 @@ class ActivityForm extends Model
             ['title','string','length'=>[5,10]],
             [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
             ['body','string','max'=>50],
+            //['title',FormValidator::class],       //не знаю, как указать use  для FormValidator
             [['date_start','date_end'],'date','format'=>'php:Y-m-d H:i:s'],
 
             ['email','email'],
-           ['email','required','when'=>function($model,$attribute){
-               return empty($model->login)?false:true;}],
             ['email','required','when'=>function($model,$attribute){
                 return empty($model->body)?false:true;}],
 
@@ -63,7 +62,7 @@ class ActivityForm extends Model
     public function beforeValidate()
     {
         if($this->date_start) {
-            $date = \DateTime::createFormFormat('d.m.Y H:i:s', $this->date_start);
+            $date = \DateTime::createFromFormat('d.m.Y H:i:s', $this->date_start);
             if(!$date){
                 return parent::beforeValidate();
             }

@@ -7,9 +7,8 @@
  */
 
 namespace app\components;
-
+use yii\web\Response;
 use yii\base\Component;
-use yii\bootstrap\ActiveForm;
 
 class ActivityComponent extends Component
 {
@@ -34,7 +33,7 @@ class ActivityComponent extends Component
         return $model;
     }
 
-    public function processingActivity($model){
+    public function processingActivity(&$model){
 
         if ($model->validate()){      //проверка значений модели по описанным правилам rules()
             //вставить запись данных в базу
@@ -49,7 +48,7 @@ class ActivityComponent extends Component
     public function validateAjax($model) {
 
         \Yii::$app->response->format=Response::FORMAT_JSON;
-        return   $model->validate($model);          //аналогично можно вызвать статическую ф-цию ActiveForm::validate($model);
+        return   $model->validate($model); //аналогично можно вызвать статическую ф-цию ActiveForm::validate($model);
     }
 
 }

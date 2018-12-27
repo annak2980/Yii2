@@ -33,7 +33,7 @@ class CreateAction extends Action
             //получаем модель при помощи ф-ции компонента
             //заполнение модели данными массива post
 
-            $model = \Yii::$app->activity->processingActivity($model);
+            \Yii::$app->activity->processingActivity($model);
             //вызываем описанный в config/web.php компонент activity,
             //processingActivity - ф-ция компонента выполняет валидацию и обработку pоst-данных модели
 
