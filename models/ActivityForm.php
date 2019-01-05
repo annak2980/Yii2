@@ -21,7 +21,7 @@ class ActivityForm extends Model
     public $email;
     public $result;
     public $is_blocked;
-    public $is_twin;
+    public $is_repeat;
 
     ///////////////////registration
     public $login;
@@ -47,7 +47,7 @@ class ActivityForm extends Model
 
             ['result','string','max'=>50],
             ['is_blocked','boolean'],
-            ['is_twin','boolean'],
+            ['is_repeat','boolean'],
 
             [['login','password'],'required'],
             ['user_name','string','min'=>5,'max'=>50],
@@ -81,6 +81,7 @@ class ActivityForm extends Model
             'body'=>'Описание события',
             'email'=>'Email',
             'is_blocked'=>'Событие заблокировано',
+            'is_repeat'=>'Событие повторяется',
             'login'=>'Введите логин',
             'date_created'=>'Дата регистрации',
             'password'=>'Пароль',

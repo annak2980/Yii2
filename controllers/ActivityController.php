@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 use app\controllers\actions\CreateAction;
+use app\controllers\actions\TestDaoAction;
 
 use yii\web\Controller;
 
@@ -27,6 +28,9 @@ class ActivityController extends Controller
             ],
             'new_action'=>[                           //можно использовать один и тот же переход для разных
                 'class'=>CreateAction::class          //actions, вводимых в адресной строке
+            ],
+            'test_dao'=>[
+                'class'=>TestDaoAction::class
             ],
         ];
     }

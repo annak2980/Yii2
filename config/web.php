@@ -22,6 +22,10 @@ $config = [
             'class'=>\app\components\ActivityComponent::class,
             'class_activity_form' => '\app\models\ActivityForm'
         ],
+        'dao'=>[
+            'class'=>\app\components\DAOComponent::class,
+            'db_component_name' => 'db'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'dEfH1BVuV86QKbryH1dUr-bKlAFgSRHZ',
