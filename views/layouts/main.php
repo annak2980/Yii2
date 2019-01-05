@@ -59,7 +59,12 @@ AppAsset::register($this);
             ['label' => 'Lesson 5 GeekBrains', 'items' =>[
                 ['label' => 'Проверить работу с DAO (базой данных)', 'url' => ['/activity/test_dao']],
                 '<li class="divider"></li>',
-                ['label' => 'Создать новое мероприятие', 'url' => ['/activity/create']]
+                ['label' => 'Посмотреть календарь событий', 'url' => ['/activity/event_calendar']],
+                '<li class="divider"></li>',
+                ['label' => 'Создать новое мероприятие', 'url' => ['/activity/new_action']],
+                '<li class="divider"></li>',
+                ['label' => 'Создать новое событие', 'url' => ['/activity/new_event']],
+
             ]],
 
             Yii::$app->user->isGuest ? (

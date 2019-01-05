@@ -10,6 +10,7 @@ namespace app\controllers;
 
 use app\controllers\actions\CreateAction;
 use app\controllers\actions\TestDaoAction;
+use app\controllers\actions\EventCalendarAction;
 
 use yii\web\Controller;
 
@@ -31,6 +32,12 @@ class ActivityController extends Controller
             ],
             'test_dao'=>[
                 'class'=>TestDaoAction::class
+            ],
+            'new_event'=>[
+                'class'=>CreateEventAction::class
+            ],
+            'event_calendar'=>[
+                'class'=>EventCalendarAction::class
             ],
         ];
     }
