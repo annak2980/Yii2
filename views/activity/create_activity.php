@@ -21,13 +21,11 @@ $this->title = "Новое мероприятие:";
 
         <?=$form->field($model,'title',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'date_start',['enableAjaxValidation'=>true])->
-        widget(\yii\widgets\MaskedInput::class,['mask'=>"99.99.9999 99:99:99"])->textInput(['class'=>'form-control date_input']);?>
+        widget(\yii\widgets\MaskedInput::class,['mask'=>"9999-99-99 99:99:99"])->textInput(['class'=>'form-control date_input']);?>
         <?=$form->field($model,'date_end',['enableAjaxValidation'=>true])->
-        widget(\yii\widgets\MaskedInput::class,['mask'=>"99.99.9999 99:99:99"])->textInput(['class'=>'form-control date_input']);?>
+        widget(\yii\widgets\MaskedInput::class,['mask'=>"9999-99-99 99:99:99"])->textInput(['class'=>'form-control date_input']);?>
        <?=$form->field($model,'email',['enableAjaxValidation'=>true,'enableClientValidation'=>false])->input('email');?>
         <?=$form->field($model,'address',['enableAjaxValidation'=>true,'enableClientValidation'=>false])->textinput();?>
-<!--        <?//=$form->field($model,'password',['enableAjaxValidation'=>true])->passwordInput();?>
-       <?//=$form->field($model,'password_repeat',['enableAjaxValidation'=>true])->passwordInput();?> -->
         <?=$form->field($model,'body',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'is_block')->checkbox(['class'=>'handler_input']);?>
 

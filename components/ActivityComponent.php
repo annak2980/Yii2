@@ -33,13 +33,20 @@ class ActivityComponent extends Component
         return $model;
     }
 
+    /**
+     * @param ActivityForm $model
+     * @return ActivityForm|bool
+     * @throws \Throwable
+     */
     public function processingActivity(&$model){
+        //model в параметре передается по ссылке, и все изменения ее реквизитов (user_id) сохранятся
+        $model['user_id']=\Yii::$app->user->getIdentity()->id;
 
-        if ($model->validate()){      //проверка значений модели по описанным правилам rules()
-            //вставить запись данных в базу
+        //if ($model->validate()){      //проверка значений модели по описанным правилам rules()
+        if ($model->save()){
             //вставить вывод уведомлений
 
-            return $model;
+            return true;
         }
 
         return false;

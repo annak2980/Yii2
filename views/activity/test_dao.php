@@ -20,9 +20,10 @@ use yii\helpers\ArrayHelper;
 
         <?php foreach ($activities_reader as $activity_item) : ?>
             <p>
-                <strong>Название: </strong><?=ArrayHelper::getValue($activity_item,'title')?>
-                <strong>| дата начала: </strong><?=ArrayHelper::getValue($activity_item,'date_start')?>
-                <strong>| описание: </strong><?=ArrayHelper::getValue($activity_item,'body')?>
+                <strong>Название:</strong><?=ArrayHelper::getValue($activity_item,'title')?>
+                <strong>|дата начала:</strong><?=ArrayHelper::getValue($activity_item,'date_start')?>
+                <strong>|описание:</strong><?=ArrayHelper::getValue($activity_item,'body')?>
+                <strong>|user:</strong><?=ArrayHelper::getValue($activity_item,'user_id')?>
             </p>
         <?php endforeach; ?>
 
