@@ -16,7 +16,6 @@ use app\controllers\actions\EventCalendarAction;
 use yii\web\Controller;
 
 
-
 class ActivityController extends Controller
 {
     /**

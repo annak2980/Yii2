@@ -7,33 +7,23 @@
  */
 namespace app\models;
 
-use yii\base\Model;
+use app\models\Activity;
 
 
-class ActivityForm extends Model
+class ActivityForm extends Activity
 {
-    public $title; // название события
-    public $date_start;
-    public $date_end;
-    public $date_created;
-    public $user_id;
-    public $day_id;
-    public $body;
-    public $email;
-    public $address;
-    public $is_blocked;
-    public $is_repeat;
-
+     public $email; //этого поля нет в таблице базы данных
     ///////////////////registration
-    public $login;
-    public $user_name;
-    public $password;
-    public $password_repeat;
-    public $accept_process_data;
+//    public $login;
+//    public $user_name;
+//    public $password;
+//    public $password_repeat;
+//    public $accept_process_data;
 
     public function rules() //служебная ф-ция, содержит правила валидации атрибутов модели
     {
-        return [
+
+        return array_merge([
 
             ['title','required'],
             ['title','string','length'=>[5,10]],
@@ -46,17 +36,15 @@ class ActivityForm extends Model
             ['email','required','when'=>function($model,$attribute){
                 return empty($model->body)?false:true;}],
 
-            ['is_blocked','boolean'],
-            ['is_repeat','boolean'],
+            ['is_block','boolean'],
 
-            [['login','password'],'required'],
-            ['user_name','string','min'=>5,'max'=>50],
-            ['login','string','length'=>[5,10]],
-            ['password','match','pattern'=> '/^[a-z]{5,19}/','message'=>'Пароль на латинице не менее 5 символов'],
+            //[['login','password'],'required'],
+           // ['login','string','length'=>[5,10]],
+            //['password','match','pattern'=> '/^[a-z]{5,19}/','message'=>'Пароль на латинице не менее 5 символов'],
             //['password_repeat','compare','compareAttribute' => 'password'],
-            ['accept_process_data','boolean'],
+            //['accept_process_data','boolean'],
 
-        ];
+        ],parent::rules());
     }
 
     public function beforeValidate()
@@ -82,14 +70,12 @@ class ActivityForm extends Model
             'body'=>'Описание',
             'email'=>'Email',
             'address'=>'Адрес проведения мероприятия',
-            'is_blocked'=>'Событие заблокировано',
-            'is_repeat'=>'Событие повторяется',
+            'is_block'=>'Событие заблокировано'
 
-            'login'=>'Введите логин',
-            'date_created'=>'Дата регистрации',
-            'password'=>'Пароль',
-            'user_name'=>'ФИО пользователя',
-            'accept_process_data'=>'Согласие на обработку персональных данных'
+            //'login'=>'Введите логин',
+            //'date_created'=>'Дата регистрации',
+            //'password'=>'Пароль',
+            //'accept_process_data'=>'Согласие на обработку персональных данных'
         ];
     }
 }

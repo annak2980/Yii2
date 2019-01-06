@@ -30,6 +30,11 @@ $config = [
             'class'=>\app\components\EventsCalendarComponent::class,
             'db_component_name' => 'db'
         ],
+        'user_comp'=>[
+            'class'=>\app\components\UsersComponent::class,
+            'class_user_sign_in' => '\app\models\UsersSignIn',
+            'class_user_sign_up' => '\app\models\UsersSignUp'
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'dEfH1BVuV86QKbryH1dUr-bKlAFgSRHZ',
@@ -38,7 +43,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\Users',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
