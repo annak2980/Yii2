@@ -7,6 +7,7 @@
  */
 
 namespace app\components;
+use app\models\Activity;
 use yii\web\Response;
 use yii\base\Component;
 
@@ -34,6 +35,14 @@ class ActivityComponent extends Component
     }
 
     /**
+     * @param $id
+     * @return Activity|array|\yii\db\ActiveRecord|null
+     */
+    public function getModelFromId($id){
+        return Activity::find()->andWhere(['id'=>$id])->one();
+    }
+
+    /**
      * @param ActivityForm $model
      * @return ActivityForm|bool
      * @throws \Throwable
@@ -44,7 +53,7 @@ class ActivityComponent extends Component
 
         //if ($model->validate()){      //проверка значений модели по описанным правилам rules()
         if ($model->save()){
-            //вставить вывод уведомлений
+
 
             return true;
         }

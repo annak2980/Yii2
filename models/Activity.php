@@ -7,18 +7,6 @@ use Yii;
 /**
  * This is the model class for table "activity".
  *
- * @property int $id
- * @property int $id_user
- * @property string $body
- * @property string $address
- * @property int $is_repeat
- * @property int $is_block
- * @property string $create_at
- * @property string $update_at
- * @property int $user_id
- * @property string $title
- * @property string $date_start
- * @property string $date_end
  *
  * @property Users $user
  */
