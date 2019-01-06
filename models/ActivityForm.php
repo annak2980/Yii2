@@ -16,10 +16,11 @@ class ActivityForm extends Model
     public $date_start;
     public $date_end;
     public $date_created;
-    public $id_author;
+    public $user_id;
+    public $day_id;
     public $body;
     public $email;
-    public $result;
+    public $address;
     public $is_blocked;
     public $is_repeat;
 
@@ -37,15 +38,14 @@ class ActivityForm extends Model
             ['title','required'],
             ['title','string','length'=>[5,10]],
             [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
-            ['body','string','max'=>50],
+            ['body','string','max'=>500],
             //['title',FormValidator::class],       //не знаю, как указать use  для FormValidator
-            [['date_start','date_end'],'date','format'=>'php:Y-m-d H:i:s'],
+            [['date_start','date_end'],'date','format'=>'Y-m-d H:i:s'],
 
             ['email','email'],
             ['email','required','when'=>function($model,$attribute){
                 return empty($model->body)?false:true;}],
 
-            ['result','string','max'=>50],
             ['is_blocked','boolean'],
             ['is_repeat','boolean'],
 
@@ -74,14 +74,17 @@ class ActivityForm extends Model
     public function attributeLabels()
     {
         return [
-            'title'=>'Заголовок события',
+            'title'=>'Наименование',
             'date_start'=>'Дата начала',
             'date_end'=>'Дата окончания',
-            'id_author'=>'ID автора',
-            'body'=>'Описание события',
+            'user_id'=>'ID автора',
+            'day_id'=>'День календаря',
+            'body'=>'Описание',
             'email'=>'Email',
+            'address'=>'Адрес проведения мероприятия',
             'is_blocked'=>'Событие заблокировано',
             'is_repeat'=>'Событие повторяется',
+
             'login'=>'Введите логин',
             'date_created'=>'Дата регистрации',
             'password'=>'Пароль',

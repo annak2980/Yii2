@@ -7,7 +7,7 @@
  */
 use yii\bootstrap\ActiveForm;
 
-$this->title = "Новое событие:";
+$this->title = "Новое мероприятие:";
 ?>
 <h2><?=$this->title?></h2>
 <div class="row">
@@ -25,8 +25,9 @@ $this->title = "Новое событие:";
         <?=$form->field($model,'date_end',['enableAjaxValidation'=>true])->
         widget(\yii\widgets\MaskedInput::class,['mask'=>"99.99.9999 99:99:99"])->textInput(['class'=>'form-control date_input']);?>
         <?=$form->field($model,'email',['enableAjaxValidation'=>true,'enableClientValidation'=>false])->input('email');?>
-        <?=$form->field($model,'password',['enableAjaxValidation'=>true])->passwordInput();?>
-        <?=$form->field($model,'password_repeat',['enableAjaxValidation'=>true])->passwordInput();?>
+        <?=$form->field($model,'address',['enableAjaxValidation'=>true,'enableClientValidation'=>false])->textinput();?>
+<!--        <?//=$form->field($model,'password',['enableAjaxValidation'=>true])->passwordInput();?>
+       <?//=$form->field($model,'password_repeat',['enableAjaxValidation'=>true])->passwordInput();?> -->
         <?=$form->field($model,'body',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'is_blocked')->checkbox(['class'=>'handler_input']);?>
 

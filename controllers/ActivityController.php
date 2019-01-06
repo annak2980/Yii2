@@ -8,7 +8,8 @@
 
 namespace app\controllers;
 
-use app\controllers\actions\CreateAction;
+use app\controllers\actions\CreateActivityAction;
+use app\controllers\actions\CreateEventAction;
 use app\controllers\actions\TestDaoAction;
 use app\controllers\actions\EventCalendarAction;
 
@@ -25,10 +26,10 @@ class ActivityController extends Controller
 
         return [
             'create'=>[
-                'class'=>CreateAction::class
+                'class'=>CreateActivityAction::class
             ],
             'new_action'=>[                           //можно использовать один и тот же переход для разных
-                'class'=>CreateAction::class          //actions, вводимых в адресной строке
+                'class'=>CreateActivityAction::class          //actions, вводимых в адресной строке
             ],
             'test_dao'=>[
                 'class'=>TestDaoAction::class
