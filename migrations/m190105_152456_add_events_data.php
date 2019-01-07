@@ -12,11 +12,6 @@ class m190105_152456_add_events_data extends Migration
      */
     public function safeUp()
     {
-        $my_day = 01;
-        $my_month = 01;
-        $my_year = 2019;
-
-        $my_date = mktime(0, 0, 0, $my_month , $my_day, $my_year);
 
         for ($i=1;$i<500;$i++){
             $this->insert('events',[

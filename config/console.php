@@ -16,6 +16,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' => [                                 // RBAC – контроль доступа на основе ролей
+            'class' => 'yii\rbac\DbManager',
+        ],
         'log' => [
             'targets' => [
                 [

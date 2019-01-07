@@ -18,6 +18,10 @@ $config = [
         ],
     ],
     'components' => [
+        'authManager' => [                                 // RBAC – контроль доступа на основе ролей
+            'class' => 'yii\rbac\DbManager',
+        ],
+
         'activity'=>[
             'class'=>\app\components\ActivityComponent::class,
             'class_activity_form' => '\app\models\ActivityForm'

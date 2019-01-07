@@ -10,7 +10,7 @@ namespace app\components;
 
 use app\models\Users;
 use yii\base\Component;
-use app\models\UsersSignUp;
+use yii\web\HttpException;
 use app\models\UsersSignIn;
 
 class UsersComponent extends Component
@@ -18,6 +18,37 @@ class UsersComponent extends Component
     public $class_user_sign_in;
     public $class_user_sign_up;
 
+    public function checkAuthUsers(){
+        //Проверим, что пользователь авторизован
+
+        if(\Yii::$app->user->isGuest){
+            throw new HttpException(401,'Пользователь не авторизован');
+        }
+    }
+
+    /**
+     * @param $model
+     * @param $permission
+     * @param $admin_permission
+     * @throws HttpException
+     */
+    public function canViewAuthorActivity($model, $permission, $admin_permission){
+        //Подключаем пользователю право просматривать только свои записи,если это не администратор
+
+        if(!\Yii::$app->user->can($permission,['activity'=>$model])){
+
+            if(!\Yii::$app->user->can($admin_permission)){
+                throw new HttpException(401, 'этот пользователь не администратор и не автор данной записи');
+            }
+        }
+    }
+
+    public function checkCanUsers($permission){
+
+        if(!\Yii::$app->user->can($permission)){
+            throw new HttpException(401, 'у пользователя нет права '.$permission);
+        }
+    }
     /**
      * @param $username
      * @return Users|array|\yii\db\ActiveRecord|null

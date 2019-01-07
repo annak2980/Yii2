@@ -10,6 +10,7 @@ namespace app\controllers\actions;
 
 use yii\base\Action;
 
+
 class CreateActivityAction extends Action
 {
     public function run(){
@@ -21,6 +22,12 @@ class CreateActivityAction extends Action
         //         'class_activity_form' => '\app\models\ActivityForm']);
         //тогда дальше можно обращаться к компоненту так:
         //          $component->getModel();  $component->processingActivity($model);
+
+        //Проверим, что пользователь авторизован
+        \Yii::$app->user_comp->checkAuthUsers();
+
+        //Проверим, имеет ли пользователь право создавать мероприятия
+        \Yii::$app->user_comp->checkCanUsers('createActivity');
 
         if(\Yii::$app->request->isAjax) {
             $model = \Yii::$app->activity->getModel(\Yii::$app->request->post());
