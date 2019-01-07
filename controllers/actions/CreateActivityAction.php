@@ -41,7 +41,7 @@ class CreateActivityAction extends Action
             //заполнение модели данными массива post
 
             if(\Yii::$app->activity->processingActivity($model)){
-                return $this->controller->redirect(['/activity/view_action','id'=>$model->id]);
+                return $this->controller->redirect(['/activity/view_activity','id'=>$model->id]);
             }
             //вызываем описанный в config/web.php компонент activity,
             //processingActivity - ф-ция компонента выполняет валидацию и обработку pоst-данных модели

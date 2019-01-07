@@ -61,7 +61,7 @@ AppAsset::register($this);
                 '<li class="divider"></li>',
                 ['label' => 'Посмотреть календарь событий', 'url' => ['/activity/event_calendar']],
                 '<li class="divider"></li>',
-                ['label' => 'Создать новое мероприятие', 'url' => ['/activity/new_action']],
+                ['label' => 'Создать новое мероприятие', 'url' => ['/activity/new_activity']],
                 '<li class="divider"></li>',
                 ['label' => 'Создать новое событие(задание)', 'url' => ['/activity/new_event']],
 

@@ -7,8 +7,6 @@
  */
 namespace app\models;
 
-use app\models\Activity;
-
 
 class ActivityForm extends Activity
 {

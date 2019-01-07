@@ -28,14 +28,17 @@ class ActivityController extends Controller
             'create'=>[
                 'class'=>CreateActivityAction::class //можно использовать один и тот же переход для разных
             ],                                       //actions, вводимых в адресной строке
-            'new_action'=>[
+            'new_activity'=>[
                 'class'=>CreateActivityAction::class
             ],
-            'view_action'=>[
+            'view_activity'=>[
                 'class'=>ViewActivityAction::class
             ],
             'new_event'=>[
                 'class'=>CreateEventAction::class
+            ],
+            'view_event'=>[
+                'class'=>ViewEventAction::class
             ],
             'test_dao'=>[
                 'class'=>TestDaoAction::class

@@ -29,10 +29,11 @@ class RbacController extends Controller
         $authManager->add($authorActivityRule);
 
         $authorActivityPermission=$authManager->createPermission('authorActivity');
-        $authorActivityPermission->description='Владелец мероприятия';
+        $authorActivityPermission->description='Владелец записи';
         $authorActivityPermission->ruleName=$authorActivityRule->name;
         $authManager->add($authorActivityPermission);
 
+        ////////////////////Activity - действия с мероприятиями
         $createActivity=$authManager->createPermission('createActivity');
         $createActivity->description='Создание мероприятия';
 
@@ -46,14 +47,32 @@ class RbacController extends Controller
         $authManager->add($viewActivity);
         $authManager->add($editActivity);
 
+        ////////////////////Event - действия с событиями(заданиями)
+        $createEvent=$authManager->createPermission('createEvent');
+        $createEvent->description='Создание события';
+
+        $viewEvent=$authManager->createPermission('viewEvent');
+        $viewEvent->description='Просмотр события';
+
+        $editEvent=$authManager->createPermission('editEvent');
+        $editEvent->description='Редактирование события';
+
+        $authManager->add($createEvent);
+        $authManager->add($viewEvent);
+        $authManager->add($editEvent);
+
         //предоставляем право конкретному виду пользователя (роли)
 
         $authManager->addChild($user,$createActivity);
-        $authManager->addChild($user,$authorActivityPermission); //только автор может просматривать свои мероприятия
-
-        $authManager->addChild($admin,$user);
         $authManager->addChild($admin,$viewActivity);
         $authManager->addChild($admin,$editActivity);
+
+        $authManager->addChild($user,$createEvent);
+        $authManager->addChild($admin,$viewEvent);
+        $authManager->addChild($admin,$editEvent);
+
+        $authManager->addChild($user,$authorActivityPermission); //только автор может просматривать свои мероприятия
+        $authManager->addChild($admin,$user);
 
         //указываем роль для конкретного пользователя из таблицы бд users
 

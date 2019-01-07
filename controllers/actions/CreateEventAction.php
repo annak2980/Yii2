@@ -14,23 +14,27 @@ class CreateEventAction extends Action
 {
     public function run(){
 
+        //Проверим, что пользователь авторизован
+        \Yii::$app->user_comp->checkAuthUsers();
+
+        //Проверим, имеет ли пользователь право создавать события
+        \Yii::$app->user_comp->checkCanUsers('createEvent');
+
         if(\Yii::$app->request->isAjax) {
-            $model = \Yii::$app->activity->getModel(\Yii::$app->request->post());
-            return   \Yii::$app->activity->validateAjax($model);
+            $model = \Yii::$app->event->getModel(\Yii::$app->request->post());
+            return   \Yii::$app->event->validateAjax($model);
         }
 
         if(\Yii::$app->request->isPost) {
 
-            $model = \Yii::$app->activity->getModel(\Yii::$app->request->post());
-            //получаем модель при помощи ф-ции компонента
-            //заполнение модели данными массива post
+            $model = \Yii::$app->event->getModel(\Yii::$app->request->post());
 
-            \Yii::$app->activity->processingActivity($model);
-            //вызываем описанный в config/web.php компонент activity,
-            //processingActivity - ф-ция компонента выполняет валидацию и обработку pоst-данных модели
+            if(\Yii::$app->event->processingActivity($model)){
+                return $this->controller->redirect(['/activity/view_event','id'=>$model->id]);
+            }
 
         } else{
-            $model = \Yii::$app->activity->getModel(); //просто создаем пустую модель без обработки данных
+            $model = \Yii::$app->event->getModel(); //просто создаем пустую модель без обработки данных
         }
 
 

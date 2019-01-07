@@ -26,6 +26,12 @@ $config = [
             'class'=>\app\components\ActivityComponent::class,
             'class_activity_form' => '\app\models\ActivityForm'
         ],
+
+        'event'=>[
+            'class'=>\app\components\ActivityComponent::class,
+            'class_activity_form' => '\app\models\EventForm'
+        ],
+
         'dao'=>[
             'class'=>\app\components\DAOComponent::class,
             'db_component_name' => 'db'
