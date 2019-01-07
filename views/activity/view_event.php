@@ -14,7 +14,7 @@ $this->title = "Просмотр и редактирование события 
     <div class = "col-md-6">
         <?php
         $form = ActiveForm::begin([
-            'id' => 'create-form',
+            'id' => 'view-form',
             'method' => 'POST'
         ]);
         ?>
@@ -23,7 +23,7 @@ $this->title = "Просмотр и редактирование события 
         <?=$form->field($model,'title',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'body',['enableAjaxValidation'=>true]);?>
 
-        <button class="btn btn-info" type="submit">Send</button>
+        <button class="btn btn-info" type="submit">OK</button>
         <?php ActiveForm::end();?>
 
     </div>

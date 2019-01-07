@@ -14,7 +14,7 @@ $this->title = "Просмотр и редактирование меропри�
     <div class = "col-md-6">
         <?php
         $form = ActiveForm::begin([
-            'id' => 'create-form',
+            'id' => 'view-form',
             'method' => 'POST'
         ]);
         ?>
@@ -28,23 +28,10 @@ $this->title = "Просмотр и редактирование меропри�
         <?=$form->field($model,'body',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'is_block')->checkbox(['class'=>'handler_input']);?>
 
-        <button class="btn btn-info" type="submit">Send</button>
+        <button class="btn btn-info" type="submit">OK</button>
         <?php ActiveForm::end();?>
 
     </div>
 
-    <div class = "col-md-6">
 
-        <?php if(\Yii::$app->request->post()) { ?>
-
-            <h1>Название мероприятия: <?=$model->attributes['title']; ?></h1>
-
-            <h3><?=$model->getAttributeLabel('email') ?>
-                <div><?=$model['email'] ?></div></h3>
-
-            <h3><?=$model->getAttributeLabel('body') ?>
-                <div><?=$model['body'] ?></div></h3>
-
-        <?php } ?>
-    </div>
 </div>
