@@ -38,7 +38,7 @@ class ActivityBase extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user', 'is_repeat', 'is_block', 'user_id'], 'integer'],
+            [['is_repeat', 'is_block', 'user_id'], 'integer'],
             [['body'], 'string'],
             [['create_at', 'update_at', 'date_start', 'date_end'], 'safe'],
             [['title'], 'required'],
@@ -55,7 +55,6 @@ class ActivityBase extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'id_user' => Yii::t('app', 'Id User'),
             'body' => Yii::t('app', 'Body'),
             'address' => Yii::t('app', 'Address'),
             'is_repeat' => Yii::t('app', 'Is Repeat'),

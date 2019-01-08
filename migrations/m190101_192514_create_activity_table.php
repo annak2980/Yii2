@@ -13,7 +13,7 @@ class m190101_192514_create_activity_table extends Migration
     public function safeUp()
     {
         $this->createTable('activity', [
-            'id_activity' => $this->primaryKey()
+            'id' => $this->primaryKey()
         ]);
 
 
