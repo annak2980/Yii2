@@ -9,24 +9,7 @@ use yii\helpers\ArrayHelper;
 ?>
 <div class="row">
     <div class = "col-md-6">
-        <?php foreach ($user_list as $user) : ?>
-        <p>
-            <strong>username: </strong><?=ArrayHelper::getValue($user,'username')?>
-            <strong> email: </strong><?=ArrayHelper::getValue($user,'email')?>
-        </p>
-        <?php endforeach; ?>
-        <br>
-        <h3><div>Список всех мероприятий</div></h3>
-
-        <?php foreach ($activities_reader as $activity_item) : ?>
-            <p>
-                <strong>Название:</strong><?=ArrayHelper::getValue($activity_item,'title')?>
-                <strong>|дата начала:</strong><?=ArrayHelper::getValue($activity_item,'date_start')?>
-                <strong>|описание:</strong><?=ArrayHelper::getValue($activity_item,'body')?>
-                <strong>|user:</strong><?=ArrayHelper::getValue($activity_item,'user_id')?>
-            </p>
-        <?php endforeach; ?>
-
+        <?=\app\widgets\test_dao\TestDaoWidget::widget(['user_list'=>$user_list,'activities_reader'=>$activities_reader])?>
     </div>
 
     <div class = "col-md-6">
