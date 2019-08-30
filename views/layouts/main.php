@@ -56,7 +56,9 @@ AppAsset::register($this);
 //                ]],
 //            ]],
 
-            ['label' => 'Lesson 5 GeekBrains', 'items' =>[
+            ['label' => 'Lesson 7 GeekBrains', 'items' =>[
+                ['label' => 'Настройка поиска в виджете таблицы', 'url' => ['/activity/search_activity']],
+                '<li class="divider"></li>',
                 ['label' => 'Проверить работу с DAO (базой данных)', 'url' => ['/activity/test_dao']],
                 '<li class="divider"></li>',
                 ['label' => 'Посмотреть календарь событий', 'url' => ['/activity/event_calendar']],

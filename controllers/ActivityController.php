@@ -8,6 +8,7 @@
 
 namespace app\controllers;
 
+use app\controllers\actions\SearchActivityAction;
 use app\controllers\actions\CreateActivityAction;
 use app\controllers\actions\ViewActivityAction;
 use app\controllers\actions\CreateEventAction;
@@ -33,6 +34,9 @@ class ActivityController extends Controller
             ],
             'view_activity'=>[
                 'class'=>ViewActivityAction::class
+            ],
+            'search_activity'=>[
+                'class'=>SearchActivityAction::class
             ],
             'new_event'=>[
                 'class'=>CreateEventAction::class

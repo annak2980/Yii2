@@ -23,7 +23,7 @@ class ActivityForm extends Activity
 
         return array_merge([
 
-            ['title','required'],
+            [['title','email'],'required'],
             ['title','string','length'=>[5,10]],
             [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
             ['body','string','max'=>500],
@@ -68,7 +68,8 @@ class ActivityForm extends Activity
             'body'=>'Описание',
             'email'=>'Email',
             'address'=>'Адрес проведения мероприятия',
-            'is_block'=>'Событие заблокировано'
+            'is_block'=>'Событие заблокировано',
+            'comment'=>'Заполните форму в соответствии с правилами',
 
             //'login'=>'Введите логин',
             //'date_created'=>'Дата регистрации',

@@ -6,7 +6,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
-    'language' => 'ru_RU',
+    'language' => 'ru_RU',                         //Язык, который используется по умолчанию
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -45,6 +45,11 @@ $config = [
             'class_user_sign_in' => '\app\models\UsersSignIn',
             'class_user_sign_up' => '\app\models\UsersSignUp'
         ],
+
+        'mess'=>[
+            'class' =>\app\components\MessengerComponent::class
+        ],
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'dEfH1BVuV86QKbryH1dUr-bKlAFgSRHZ',

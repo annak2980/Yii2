@@ -15,9 +15,18 @@ $this->title = "Новое мероприятие:";
         <?php
         $form = ActiveForm::begin([
             'id' => 'create-form',
-            'method' => 'POST'
+            'method' => 'POST' //Нужно указать явно, т.к. по умолчанию ActiveForm используется GET
         ]);
         ?>
+
+        <p><?=//Можно обратиться к методу модели напрямую и получить метку аттрибута:
+            $model->getAttributeLabel('comment') ?>
+        </p>
+
+        <p>
+           <?php //Вызов функции компонента MessengerComponent
+           echo \Yii::$app->mess->displayHTMLMessage('Заполните поля ниже')?>
+        </p>
 
         <?=$form->field($model,'title',['enableAjaxValidation'=>true]);?>
         <?=$form->field($model,'date_start',['enableAjaxValidation'=>true])->

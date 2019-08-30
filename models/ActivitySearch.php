@@ -16,8 +16,18 @@ class ActivitySearch extends Activity
         $comp=\Yii::$app->activity;
         $query=$comp->getModel()::find();
 
-        //$provider = new ActiveDataProvider()
+        $provider = new ActiveDataProvider([
+            'query'=>$query,
+            'pagination'=>[
+                'pageSize'=>5
+            ],
+            'sort'=>[
+                'defaultOrder' => [
+                    'date_start'=>SORT_ASC
+                ]
+            ]
+        ]);
 
-        //урок не доделан
+        return $provider;
     }
 }

@@ -34,11 +34,11 @@ class CreateActivityAction extends Action
             return   \Yii::$app->activity->validateAjax($model);
         }
 
-        if(\Yii::$app->request->isPost) {
+        if(\Yii::$app->request->isPost) { //если используется метод передачи данных из формы post
 
             $model = \Yii::$app->activity->getModel(\Yii::$app->request->post());
             //получаем модель при помощи ф-ции компонента
-            //заполнение модели данными массива post
+            //заполнение модели данными массива post, полученными из формы
 
             if(\Yii::$app->activity->processingActivity($model)){
                 return $this->controller->redirect(['/activity/view_activity','id'=>$model->id]);
@@ -48,6 +48,8 @@ class CreateActivityAction extends Action
 
             //вывод массива с ошибками
             //    print_r($model->getErrors();
+            //вывод массива с атрибутами
+            //    print_r($model->getAttributes();
 
         } else{
             $model = \Yii::$app->activity->getModel(); //просто создаем пустую модель без обработки данных
