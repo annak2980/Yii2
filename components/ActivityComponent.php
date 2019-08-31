@@ -36,7 +36,8 @@ class ActivityComponent extends Component
         //подстановка в абстракцию задается в config\web.php настройкой 'class_activity_form'=>'\app\models\ActivityForm'
 
         if($params){
-            $model->load($params);
+            $model->load($params); //Загружаем в модель полученные параметры
+            //заполнение модели данными массива post, полученными из формы в actions\CreateActivityAction.php
         }
         return $model;
     }

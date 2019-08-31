@@ -45,11 +45,12 @@ class CreateActivityAction extends Action
             }
             //вызываем описанный в config/web.php компонент activity,
             //processingActivity - ф-ция компонента выполняет валидацию и обработку pоst-данных модели
+            //если данные модели прошли валидацию, открываем форму просмотра события
 
             //вывод массива с ошибками
-            //    print_r($model->getErrors();
+            //    print_r($model->getErrors(); exit;
             //вывод массива с атрибутами
-            //    print_r($model->getAttributes();
+            //    print_r($model->getAttributes(); exit;
 
         } else{
             $model = \Yii::$app->activity->getModel(); //просто создаем пустую модель без обработки данных
