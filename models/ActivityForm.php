@@ -6,17 +6,13 @@
  * Time: 10:25
  */
 namespace app\models;
+use app\models\validators\FormValidator;
 
 
 class ActivityForm extends Activity
 {
      public $email; //этого поля нет в таблице базы данных
-    ///////////////////registration
-//    public $login;
-//    public $user_name;
-//    public $password;
-//    public $password_repeat;
-//    public $accept_process_data;
+
 
     public function rules() //служебная ф-ция, содержит правила валидации атрибутов модели
     {
@@ -24,23 +20,18 @@ class ActivityForm extends Activity
         return array_merge([
 
             [['title','email'],'required'],
-            ['title','string','length'=>[5,10]],
-            [['title','body'],'trim'],               // убирает ненужны пробелы сбоку
+            ['title','string','length'=>[5,20]],
+            [['title','body'],'trim'],               // убирает ненужные пробелы сбоку
             ['body','string','max'=>500],
-            //['title',FormValidator::class],       //не знаю, как указать use  для FormValidator
+            [['title','body'],FormValidator::class],     //подключаем автономный валидатор
             [['date_start','date_end'],'date','format'=>'php:Y-m-d H:i:s'],
 
             ['email','email'],
             ['email','required','when'=>function($model,$attribute){
                 return empty($model->body)?false:true;}],
 
-            ['is_block','boolean'],
+            ['is_block','boolean'], //для checkbox
 
-            //[['login','password'],'required'],
-           // ['login','string','length'=>[5,10]],
-            //['password','match','pattern'=> '/^[a-z]{5,19}/','message'=>'Пароль на латинице не менее 5 символов'],
-            //['password_repeat','compare','compareAttribute' => 'password'],
-            //['accept_process_data','boolean'],
 
         ],parent::rules());
     }
@@ -71,10 +62,6 @@ class ActivityForm extends Activity
             'is_block'=>'Событие заблокировано',
             'comment'=>'Заполните форму в соответствии с правилами',
 
-            //'login'=>'Введите логин',
-            //'date_created'=>'Дата регистрации',
-            //'password'=>'Пароль',
-            //'accept_process_data'=>'Согласие на обработку персональных данных'
         ];
     }
 }

@@ -23,6 +23,8 @@ class CreateActivityAction extends Action
         //тогда дальше можно обращаться к компоненту так:
         //          $component->getModel();  $component->processingActivity($model);
 
+
+
         //Проверим, что пользователь авторизован
         \Yii::$app->user_comp->checkAuthUsers();
 
@@ -56,8 +58,8 @@ class CreateActivityAction extends Action
             $model = \Yii::$app->activity->getModel(); //просто создаем пустую модель без обработки данных
         }
 
-        //$this->controller->view->params['label_home']='Домашняя страница'; //передача параметров во view
-        //
+        $this->controller->view->params['label_home']='Домашняя страница'; //передача параметров во view
+        //\views\layouts\main.php - настраиваем меню в зависимости от параметров
 
         return $this->controller->render('create_activity',['model' => $model]);
         //возвращает экземпляр контр-ра, который обрабатывает render модели

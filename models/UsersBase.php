@@ -6,15 +6,7 @@ use Yii;
 
 /**
  * This is the model class for table "users".
- *
- * @property int $id
- * @property string $username
- * @property string $password
- * @property string $auth_key
- * @property string $email
- * @property int $status
- * @property string $create_at
- * @property string $update_at
+
  *
  * @property Activity[] $activities
  */
@@ -37,8 +29,9 @@ class UsersBase extends \yii\db\ActiveRecord
             [['username', 'password'], 'required'],
             [['status'], 'integer'],
             [['create_at', 'update_at'], 'safe'],
-            [['username', 'email'], 'string', 'max' => 150],
+            [['username', 'email'], 'string', 'max' => 150, 'message'=>'Максимальная длина 150 символов'],
             [['password', 'auth_key'], 'string', 'max' => 300],
+           // [['password'], 'match', 'pattern' => '']  можно добавить шаблон для пароля
         ];
     }
 

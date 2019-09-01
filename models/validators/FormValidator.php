@@ -5,6 +5,7 @@
  * Date: 26.12.2018
  * Time: 11:38
  */
+namespace app\models\validators;
 
 class FormValidator extends \yii\validators\Validator
 
